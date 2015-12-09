@@ -59,8 +59,6 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
         testManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         testManager.requestWhenInUseAuthorization()
         
-        
-        
         mapView.showsUserLocation = false
         
         if let newLocationText = galleryObj["Gallery_Name"] as? String,
@@ -77,12 +75,14 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
                 
                 print("What is this latitude and longitude: \(latitude) \(longitude)")
                 
-                let gallery = GalleryAnnotation(
-                    title: newLocationText,
-                    locationName: newLocationDetailText,
-                    coordinate: location)
+                let galleryTest = GalleryAnnotation(title: newLocationText, locationName: newLocationDetailText, coordinate: location, galleryObject: galleryObj)
                 
-                mapView.addAnnotation(gallery)
+//                let gallery = GalleryAnnotation(
+//                    title: newLocationText,
+//                    locationName: newLocationDetailText,
+//                    coordinate: location)
+                
+                mapView.addAnnotation(galleryTest)
                 mapView.setCenterCoordinate(location, animated: true)
                 
         }
@@ -92,13 +92,14 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
         
         // Customize Navigation Bar
         navigationController?.navigationBar.tintColor? = .blackColor()
-        
         self.title = "\(galleryObj["Gallery_Name"]!)"
         mapView.delegate = self
         mapView.showsUserLocation = true
         
+        // Instagram Collection view
         GalleryDetailInstagramCollectionView.delegate = self
         GalleryDetailInstagramCollectionView.dataSource = self
+
         
         // Get the data from Gallery List
         testManager.delegate = self
