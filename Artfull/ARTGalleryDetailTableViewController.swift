@@ -95,7 +95,6 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
         GalleryDetailInstagramCollectionView.delegate = self
         GalleryDetailInstagramCollectionView.dataSource = self
 
-        
         // Get the data from Gallery List
         testManager.delegate = self
         testManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -343,34 +342,8 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
             
         }
     }
-    
-    
-//    @IBAction func uberButtonTapped(sender: AnyObject) {
-//        
-//        if let newGalleryLocation = galleryObj["Location"] as? PFGeoPoint {
-//            
-//            print("What is this, \(newGalleryLocation)")
-//            
-//            let newLocationText = galleryObj["Gallery_Name"] as? String
-//            let destinationLatitude: CLLocationDegrees = newGalleryLocation.latitude
-//            let destinationLongitude: CLLocationDegrees = newGalleryLocation.longitude
-//            
-//            var uberHooks = "uber://?client_id=gGwcouSmBOM_XouAiUHox3soE3Uhq8WB&action=setPickup&pickup[latitude]=\(userLocation.latitude)&pickup[longitude]=\(userLocation.longitude)&pickup[nickname]=CurrentLocation[formatted_address]=1455%20Market%20St%2C%20San%20Francisco%2C%20CA%2094103&dropoff[latitude]=\(destinationLatitude)&dropoff[longitude]=\(destinationLongitude)&dropoff[nickname]=\(newLocationText)&dropoff[formatted_address]=1%20Telegraph%20Hill%20Blvd%2C%20San%20Francisco%2C%20CA%2094133&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d"
-//            
-//            var uberUrl = NSURL(string: uberHooks)
-//            if UIApplication.sharedApplication().canOpenURL(uberUrl!)
-//            {
-//                UIApplication.sharedApplication().openURL(uberUrl!)
-//                
-//            } else {
-//                //redirect to safari because the user doesn't have Uber
-//                print("App not installed")
-//                UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/uber/id368677368?mt=8")!)
-//                
-//            }
-    
             
-        }
+}
         
         
 

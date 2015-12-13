@@ -14,7 +14,7 @@ import Photos
 
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
-    //////////////////////////// VARIABLES DECLARATIONS
+    // Variables
     
     /* Declare Table View */
     @IBOutlet weak var mainPageTableView:   UITableView!
@@ -29,8 +29,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
     var galleryDistanceString               = [String]()
     var latitude:                           CLLocationDegrees = 0
     var longitude:                          CLLocationDegrees = 0
-    
-    //////////////////////////// MAIN FUNCTIONS
     
     /* Function View Did Load */
     override func viewDidLoad()
@@ -58,7 +56,6 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        // Query the gallerie list from Parse
         queryGalleryList()
     }
     
@@ -101,7 +98,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
         self.longitude = location.longitude
     }
     
-    //////////////////////////// TABLE/CELLS CONSTRUCTION
+    // Populate Table View Cells
     
     /* Table View Definition */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -124,7 +121,8 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
             var galleryClass = PFObject(className: "Galleries")
             galleryClass = galleryArray[indexPath.row] as! PFObject
             
-            // GET GALLERY'S IMAGE
+            // Get and Assign Gallery Image
+            
             let imageFile = galleryClass["Images"] as? PFFile
             
             imageFile?.getDataInBackgroundWithBlock { (imageData, error) -> Void in
@@ -133,7 +131,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
                         singleCell.swiftgramImageView.image = UIImage(data: imageData)
                     } } }
             
-            // GET GALLERY'S TEXT FIELDS
+            // Get and Assign Gallery Text Fields
             
             singleCell.galleryNameCell.text                     = "\(galleryClass["Gallery_Name"]!)"
             singleCell.galleryNeighborhoodCell.text             = "\(galleryClass["Neighborhood"]!)"
@@ -167,7 +165,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
         
     }
     
-    //////////////////////////// NAVIGATION
+    // Navigation Bar Setup
     
     /* Row Selected => Gallery Detail */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
@@ -196,30 +194,7 @@ class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITab
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
     }
-    
-//    func resizeImage(image: UIImage, newSize: CGSize) -> (UIImage) {
-//        let newRect = CGRectIntegral(CGRectMake(0,0, newSize.width, newSize.height))
-//        let imageRef = image.CGImage
-//        
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
-//        let context = UIGraphicsGetCurrentContext()
-//        
-//        // Set the quality level to use when rescaling
-//        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
-//        let flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height)
-//        
-//        CGContextConcatCTM(context, flipVertical)
-//        // Draw into the context; this scales the image
-//        CGContextDrawImage(context, newRect, imageRef)
-//        
-//        let newImageRef = CGBitmapContextCreateImage(context) as CGImage
-//        let newImage = UIImage(CGImage: newImageRef)
-//        
-//        // Get the resized image from the context and a UIImage
-//        UIGraphicsEndImageContext()
-//        
-//        return newImage
-//    }
+
 }
 
 
