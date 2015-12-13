@@ -77,11 +77,6 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
                 
                 let galleryTest = GalleryAnnotation(title: newLocationText, locationName: newLocationDetailText, coordinate: location, galleryObject: galleryObj)
                 
-//                let gallery = GalleryAnnotation(
-//                    title: newLocationText,
-//                    locationName: newLocationDetailText,
-//                    coordinate: location)
-                
                 mapView.addAnnotation(galleryTest)
                 mapView.setCenterCoordinate(location, animated: true)
                 
@@ -337,38 +332,6 @@ class ARTGalleryDetailTableViewController: UITableViewController, UICollectionVi
             }
         }
     }
-    
-    
-    
-    //    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-    //
-    //        if indexPath.row == 0 {
-    //            return nil
-    //        }
-    //        if indexPath.row == 1 {
-    //
-    //        }
-    //        if indexPath.row == 2 {
-    //
-    //        }
-    //        if indexPath.row == 3 {
-    //
-    //        }
-    //        if indexPath.row == 4 {
-    //            return nil
-    //        }
-    //        if indexPath.row == 5 {
-    //
-    //        }
-    //        if indexPath.row == 6 {
-    //
-    //        }
-    //        if indexPath.row == 7 {
-    //            return nil
-    //        } else {
-    //        return nil
-    //        }
-    //    }
     
     @IBAction func visitButtonTapped(sender: AnyObject) {
         

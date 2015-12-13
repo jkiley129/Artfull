@@ -10,7 +10,6 @@ import UIKit
 import Parse
 import SCLAlertView
 import CoreLocation
-import Concorde
 import Photos
 
 class MainPageViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {

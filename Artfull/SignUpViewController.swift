@@ -10,7 +10,6 @@ import UIKit
 import Parse
 import ParseFacebookUtilsV4
 import SCLAlertView
-import Mixpanel
 
 class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     

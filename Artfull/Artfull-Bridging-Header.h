@@ -10,4 +10,3 @@
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <InstagramKit/InstagramKit.h>
 #import <AFNetworking/AFNetworking.h>
-#import <Mixpanel/Mixpanel.h>
